@@ -64,7 +64,7 @@ export function HeroSection() {
           <div className="flex justify-center">
             <div className="w-64 h-64 rounded-lg overflow-hidden shadow-xl border border-border">
               <Image
-                src="/uche-profile.jpg"
+                src="/uche-profile.png"
                 alt="Uchenna Igbokwe"
                 width={256}
                 height={256}
