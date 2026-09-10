@@ -21,10 +21,8 @@ export function ContactSection() {
   >("idle");
 
   const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [errorMessage, setErrormessage] = useState("");
 
-  const accessKey = process.env.NEXT_PUBLIC_WEB3FORM_ACCESS_KEY;
+  const accessKey = process.env.WEB3FORM_ACCESS_KEY;
 
   const { toast } = useToast();
 
@@ -66,21 +64,6 @@ export function ContactSection() {
   //   }
   // }
 
-  useEffect(() => {
-    const timerId = setTimeout(() => {
-      if (errorMessage) {
-        setErrormessage("");
-      }
-      if (isSuccess) {
-        setIsSuccess(false);
-      }
-    }, 4000);
-
-    return () => {
-      clearTimeout(timerId);
-    };
-  }, [errorMessage, isSuccess]);
-
   async function handleSubmit(event: {
     preventDefault: () => void;
     target: HTMLFormElement | undefined;
@@ -91,7 +74,6 @@ export function ContactSection() {
 
     if (!accessKey) {
       toast({
-        type: "foreground",
         title: "Missing variable",
         description: "Missing Web3Forms access key in environment variables.",
       });
@@ -116,8 +98,6 @@ export function ContactSection() {
       return;
     }
 
-    // console.log(object);
-
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
@@ -129,17 +109,19 @@ export function ContactSection() {
     const result = await response.json();
 
     if (result.success) {
-      setIsLoading(false);
-      setIsSuccess(true);
       toast({
         title: "Success",
-        description: "Your message has been sent successfully!",
+        description: "Message sent successfully! I'll get back to you soon.",
+        // description: "Your message has been sent successfully!",
       });
+      setIsLoading(false);
       setFormData({ name: "", email: "", message: "" });
     } else {
-      setErrormessage("Something went wrong. Please try again.");
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+      });
       setIsLoading(false);
-      setIsSuccess(false);
       setFormData({ name: "", email: "", message: "" });
     }
   }
@@ -237,12 +219,12 @@ export function ContactSection() {
           {/* Submit Button */}
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isLoading}
             className="w-full px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
-            {isSubmitting ? (
+            {isLoading ? (
               <>
-                <div className="w-4 h-4 border-2 border-background border-t-transparent rounded-full animate-spin" />
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                 Sending...
               </>
             ) : (
@@ -253,7 +235,7 @@ export function ContactSection() {
           </button>
 
           {/* Status Messages */}
-          {submitStatus === "success" && (
+          {/* {true && (
             <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-600 text-center">
               ✓ Message sent successfully! I'll get back to you soon.
             </div>
@@ -262,7 +244,7 @@ export function ContactSection() {
             <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-600 text-center">
               ✗ Error sending message. Please try again or email me directly.
             </div>
-          )}
+          )} */}
         </form>
       </div>
     </section>
