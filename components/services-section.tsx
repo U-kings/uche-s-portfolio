@@ -7,17 +7,18 @@ export function ServicesSection() {
     {
       icon: Smartphone,
       title: "Mobile Development",
-      description: "Building native and cross-platform mobile apps with React Native and Flutter",
+      description: "Building the next generation of mobile apps with React Native and Flutter.",
+      // description: "Building native and cross-platform mobile apps with React Native and Flutter",
     },
     {
       icon: Globe,
       title: "Web Development",
-      description: "Creating modern web applications with Next.js, React, and TypeScript",
+      description: "Developing scalable, modern web applications with React, Next.js, and TypeScript.",
     },
     {
       icon: Zap,
       title: "Full-Stack Solutions",
-      description: "End-to-end development from backend APIs to frontend interfaces",
+      description: "Engineering end-to-end web applications, bridging complex APIs with seamless user interfaces.",
     },
   ]
 

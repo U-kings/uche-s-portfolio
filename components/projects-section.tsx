@@ -21,7 +21,7 @@ export function ProjectsSection() {
         {/* View All Projects Link */}
         <div className="mt-12 text-center">
           <a
-            href="https://github.com/lilhop36"
+            href="https://github.com/U-kings"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent/90 text-white rounded-lg transition-all hover:gap-3 font-medium"

@@ -25,7 +25,7 @@ export function ExperienceSection() {
       company: "Android Development",
       period: "2024 – 2025",
       description:
-        "Built an Android app in Java for managing Equb contributions and member interactions. Integrated SQLite and Firebase for data storage. Features include group creation, contribution tracking, winner selection, notifications, and detailed reports.",
+        "Built an Android app in Java for managing Equb contributions and member interactions. Integrated SQLite, Supabase and Firebase for data storage. Features include group creation, contribution tracking, winner selection, notifications, and detailed reports.",
     },
     {
       id: 4,
@@ -41,7 +41,7 @@ export function ExperienceSection() {
       company: "Web & Mobile Development",
       period: "2023 – 2025",
       description:
-        "Built multiple web apps, scripts, and portfolio projects to strengthen coding and problem-solving skills. Hands-on experience with React.js, Node.js, MongoDB, Java, Android development, and Tailwind CSS.",
+        "Built multiple web apps, scripts, and portfolio projects to strengthen coding and problem-solving skills. Hands-on experience with React.js, Node.js, MongoDB, Java, Mobile development, and Tailwind CSS.",
     },
   ]
 
@@ -56,7 +56,7 @@ export function ExperienceSection() {
             <div key={exp.id} className="relative">
               {/* Timeline Line */}
               {index !== experience.length - 1 && (
-                <div className="absolute left-0 top-12 bottom-0 w-0.5 bg-gradient-to-b from-accent to-accent/20" />
+                <div className="absolute left-0 top-12 bottom-0 w-0.5 bg-linear-to-b from-accent to-accent/20" />
               )}
 
               {/* Timeline Item */}

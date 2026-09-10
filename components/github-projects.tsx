@@ -69,7 +69,7 @@ export default function GitHubProjects() {
       <div className="text-center py-12">
         <p className="text-slate-400 mb-4">{error || "No projects found"}</p>
         <a
-          href="https://github.com/lilhop36"
+          href="https://github.com/U-kings"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"

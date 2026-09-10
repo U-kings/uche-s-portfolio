@@ -3,7 +3,7 @@
 export function TechnologiesSection() {
   const technologies = [
     "React Native",
-    "Flutter",
+    // "Flutter",
     "Next.js",
     "React",
     "TypeScript",
@@ -11,7 +11,9 @@ export function TechnologiesSection() {
     "Django",
     "Java",
     "Firebase",
+    "Supabase",
     "MongoDB",
+    "Prisma",
     "PostgreSQL",
     "Tailwind CSS",
   ]

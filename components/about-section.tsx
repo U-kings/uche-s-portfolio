@@ -1,91 +1,127 @@
-// About section with bio and skills display
-// Update the bio text and skills list with your own information
+"use client";
+
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Code2, Server, Smartphone, User, Laptop } from "lucide-react";
 
 export function AboutSection() {
   const skills = [
     {
       category: "Frontend",
-      items: [
-        { name: "React.js", level: 90 },
-        { name: "TypeScript", level: 85 },
-        { name: "Tailwind CSS", level: 90 },
-        { name: "Next.js", level: 85 },
-      ],
+      icon: <Code2 className="h-4 w-4 text-gray-400" />, // Project Accent Color
+      items: ["React.js", "TypeScript", "Tailwind CSS", "Next.js"],
     },
     {
       category: "Backend",
-      items: [
-        { name: "Node.js", level: 85 },
-        { name: "MongoDB", level: 85 },
-        { name: "Java", level: 80 },
-        { name: "API Design", level: 80 },
-      ],
+      icon: <Server className="h-4 w-4 text-gray-400" />, // Project Accent Color
+      items: ["Node.js", "MongoDB", "Java", "API Design"],
     },
     {
       category: "Mobile & Tools",
-      items: [
-        { name: "Android Development", level: 80 },
-        { name: "Git", level: 90 },
-        { name: "Problem Solving", level: 90 },
-        { name: "UI/UX Design", level: 75 },
-      ],
+      icon: <Smartphone className="h-4 w-4 text-gray-400" />, // Project Accent Color
+      items: ["React Native", "Git", "UI/UX Design"],
+      // items: ["Android Dev","React Native", "Git", "Problem Solving", "UI/UX Design"],
     },
-  ]
+  ];
 
   return (
-    <section id="about" className="py-20 px-4 bg-card/50">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12">About Me</h2>
+    <section
+      id="about"
+      className="py-20 w-full bg-background text-foreground transition-colors duration-300"
+    >
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Heading */}
+        <div className="flex items-center gap-2 mb-12">
+          {/* Visual Anchor using your project accent color */}
+          <User className="h-6 w-6 text-primary" />
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            About Me
+          </h2>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Bio Section */}
-          <div>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              I'm a passionate Software Engineering student from Ethiopia with a love for building web and mobile
-              applications that solve real-world problems. My experience spans full-stack development, including
-              React.js, Node.js, MongoDB, Java, and Android development.
-            </p>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              I enjoy creating clean, efficient, and scalable code, and I'm constantly learning new technologies to
-              improve my skills. I'm particularly interested in product design, user experience, and building digital
-              solutions that bring people together.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              When I'm not programming, I like exploring innovative tech ideas, improving my productivity, and
-              experimenting with small projects that generate real value.
-            </p>
+        {/* Content Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Visual Profile Card */}
+          <div className="md:col-span-4 flex justify-left md:justify-center w-full">
+            {/* Hover state transitions directly into your project's accent outline */}
+            <Card className="w-full max-w-70 md:max-w-none aspect-square overflow-hidden bg-muted/40 border-dashed border-2 flex flex-col items-center justify-center p-6 text-center group hover:border-primary/60 hover:shadow-md transition-all duration-300">
+              <div className="p-4 rounded-full bg-background shadow-sm border mb-4 group-hover:scale-110 group-hover:border-primary/30 transition-all duration-300">
+                <Laptop className="h-8 w-8 text-foreground" />
+              </div>
+              <h3 className="font-semibold text-lg">Uchenna</h3>
+              <p className="text-sm text-muted-foreground mt-1">
+                Software Engineer
+              </p>
+            </Card>
           </div>
 
-          {/* Skills Section with Progress Bars */}
-          <div>
-            <h3 className="text-2xl font-semibold mb-8">Skills & Expertise</h3>
-            <div className="space-y-8">
-              {skills.map((skillGroup) => (
-                <div key={skillGroup.category}>
-                  <h4 className="font-semibold text-accent mb-4">{skillGroup.category}</h4>
-                  <div className="space-y-3">
-                    {skillGroup.items.map((skill) => (
-                      <div key={skill.name}>
-                        <div className="flex justify-between mb-1">
-                          <span className="text-sm font-medium">{skill.name}</span>
-                          <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                        </div>
-                        {/* Progress Bar */}
-                        <div className="w-full bg-card border border-border rounded-full h-2">
-                          <div
-                            className="bg-gradient-to-r from-accent to-accent/60 h-2 rounded-full transition-all duration-500"
-                            style={{ width: `${skill.level}%` }}
-                          />
-                        </div>
-                      </div>
-                    ))}
+          {/* Right Column: Bio Narrative & Stack */}
+          <div className="md:col-span-8 space-y-6">
+            <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
+              <p>
+                I'm a results-driven{" "}
+                <strong className="text-foreground font-semibold">
+                  Software Engineering from Nigeria
+                </strong>{" "}
+                with a solid foundation in full-lifecycle development—spanning
+                research, system design, and implementation. With a passion for
+                translating complex business and UX requirements into scalable
+                web and mobile applications, I focus on building digital
+                solutions that solve real-world problems and bring people
+                together.
+              </p>
+              <p>
+                My full-stack experience includes working with{" "}
+                <strong className="text-foreground font-medium">
+                  React.js, Next.js, Node.js, MongoDB, Prisma, Java, and Android
+                  development
+                </strong>
+                . As a detail-oriented problem solver, I am motivated to deliver
+                clean, efficient, and highly compliant software structures while
+                constantly adopting new technologies to drive project success.
+              </p>
+              <p>
+                When I'm not programming, I enjoy exploring innovative tech
+                concepts, optimizing my development workflows, and experimenting
+                with side projects designed to generate tangible, real-world
+                value.
+              </p>
+            </div>
+
+            <Separator className="my-6" />
+
+            {/* Technical Stack with Accent Highlights */}
+            <div className="space-y-6">
+              <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                Skills & Expertise
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {skills.map(({ category, icon, items }) => (
+                  <div key={category} className="space-y-3">
+                    <div className="flex items-center gap-2 font-medium text-sm text-foreground">
+                      {icon}
+                      <span>{category}</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {items.map((skill) => (
+                        <Badge
+                          key={skill}
+                          variant="secondary"
+                          className="font-normal text-xs px-2 py-0.5 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-default"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
