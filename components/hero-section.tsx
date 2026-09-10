@@ -21,9 +21,14 @@ export function HeroSection() {
               {/* Software Engineer | Architect of Innovative Digital Solutions */}
             </h1>
             <p className="text-lg text-muted-foreground mb-8 text-balance">
-              I specialize in building high-quality mobile and web applications
+              Full-stack and mobile engineer specializing in crafting scalable
+              web and mobile applications. Leveraging technologies like Next.js
+              and React Native, I transform complex ideas into high-performance
+              digital products built on clean architecture and intuitive user
+              experiences.
+              {/* I specialize in building high-quality mobile and web applications
               using modern technologies. From React Native to Next.js, I bring
-              ideas to life with clean code and intuitive design.
+              ideas to life with clean code and intuitive design. */}
             </p>
 
             {/* Location and stats */}
